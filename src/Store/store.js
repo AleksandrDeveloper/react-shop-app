@@ -4,3 +4,5 @@ import logger from "redux-logger";
 
 
 const Store = createStore(reducer,applyMiddleware(logger))
+
+export default Store;

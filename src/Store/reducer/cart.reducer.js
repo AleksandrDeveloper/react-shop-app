@@ -1,6 +1,17 @@
-const initialState={}
-
+const initialState={
+    
+}
+ 
 
 export default function(state=initialState,action){
-    return {...state}
+    const {type,payload} = action;
+    
+    switch (type) {
+        case '':
+            return{
+                ...state
+            }
+        default:
+            return {...state}
+    }
 }
