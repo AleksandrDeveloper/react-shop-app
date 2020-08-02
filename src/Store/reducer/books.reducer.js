@@ -2,7 +2,8 @@ import {ADD_BOOK, SET_BOOKS} from '../actions/type.action';
 
 
 const initialState={
-    books:[]
+    isReady:false,
+    booksArray:null
 }
 
 
@@ -13,14 +14,15 @@ export default function(state=initialState,action){
         case SET_BOOKS:
             return{
                 ...state,
-                books: payload.books
+                isReady:true,
+                booksArray: payload.books
             }
         case ADD_BOOK:
             return{
                 ...state,
-                books:[
-                    ...state.books,
-                    payload.book
+                booksArray:[
+                    ...state.booksArray,
+                    payload.bookItem
                 ]
             }
         default:
