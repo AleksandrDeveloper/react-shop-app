@@ -4,7 +4,7 @@ import {ADD_BOOK, SET_BOOKS,SET_FILTER} from '../actions/type.action';
 const initialState={
     isReady:false,
     booksArray:null,
-    filterBy:'all'
+    filterBy:'All'
 }
 
 

@@ -5,7 +5,7 @@ import NavMenu from './NavMenu';
 import {Container} from 'semantic-ui-react'
 import CardItem from './Cart';
 import { Card } from 'semantic-ui-react'
-import Filter from './Filter'
+import Filter from '../Containers/Filter'
 
  
 
@@ -25,7 +25,7 @@ function App({
   return(
     <Container>
       <NavMenu />
-      <Filter setFilter={setFilter} />
+      <Filter />
       <Card.Group itemsPerRow={4}>
       {
           !isReady?'Loading...'
