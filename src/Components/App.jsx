@@ -1,35 +1,37 @@
 import React,{ useEffect } from 'react';
-import './App.css';
-import { connect } from 'react-redux';
-import { setBooks } from './Store/actions/books';
+
 import Axios from 'axios';
-import NavMenu from './Components/NavMenu';
+import NavMenu from './NavMenu';
 import {Container} from 'semantic-ui-react'
-import CardItem from './Components/Cart';
+import CardItem from './Cart';
 import { Card } from 'semantic-ui-react'
+import Filter from './Filter'
 
-
+ 
 
 
 function App({
   books,
   isReady,
-  setBooksToStore
+  setBooks,
+  setFilter,
 }){
   useEffect(()=>{
     Axios.get('http://localhost:3001/books')
-    .then(data=>setBooksToStore(data.data))
+    .then(data=>setBooks(data.data))
   },[])
 
+  console.log(setFilter);
   return(
     <Container>
       <NavMenu />
+      <Filter setFilter={setFilter} />
       <Card.Group itemsPerRow={4}>
       {
           !isReady?'Loading...'
           :books.map((itemBook,index)=>(
             <CardItem 
-            key={index}
+            key={index} 
             {...itemBook}
             />
           ))
@@ -39,18 +41,5 @@ function App({
   )
 }
 
-const mapStateToProps=({books})=>({
-  books:books.booksArray,
-  isReady:books.isReady
-})
-const mapDispatchToProps=dispatch=>({
-  setBooksToStore:books=>dispatch(setBooks(books))
-})
 
-
-
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;

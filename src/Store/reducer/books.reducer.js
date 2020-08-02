@@ -1,9 +1,10 @@
-import {ADD_BOOK, SET_BOOKS} from '../actions/type.action';
+import {ADD_BOOK, SET_BOOKS,SET_FILTER} from '../actions/type.action';
 
 
 const initialState={
     isReady:false,
-    booksArray:null
+    booksArray:null,
+    filterBy:'all'
 }
 
 
@@ -13,7 +14,7 @@ export default function(state=initialState,action){
     switch (type) {
         case SET_BOOKS:
             return{
-                ...state,
+                ...state, 
                 isReady:true,
                 booksArray: payload.books
             }
@@ -24,6 +25,11 @@ export default function(state=initialState,action){
                     ...state.booksArray,
                     payload.bookItem
                 ]
+            }
+        case SET_FILTER:
+            return{
+                ...state,
+                filterBy:payload.filter
             }
         default:
             return {...state}
