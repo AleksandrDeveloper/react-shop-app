@@ -1,7 +1,12 @@
 import React from 'react'
-import {Menu } from 'semantic-ui-react';
+import {Menu, Input } from 'semantic-ui-react';
 
-export default function Filter({activeItem,setFilter}) {
+export default function Filter({
+  activeItem,
+  setFilter,
+  searchQuiery,
+  setSearch,
+}) {
     const handleItemClick=(e, { name })=>{
         setFilter(name)
     }
@@ -22,6 +27,15 @@ export default function Filter({activeItem,setFilter}) {
           active={activeItem === 'PriceLoy'}
           onClick={handleItemClick}
         >Цена-дещевые</Menu.Item>
+
+        <Menu.Item>
+          <Input
+          placsholder='Search'
+          icon='search'
+          value={searchQuiery}
+          onChange={(e)=>setSearch(e.target.value)}
+          /> 
+        </Menu.Item>
       </Menu>
     )
 };

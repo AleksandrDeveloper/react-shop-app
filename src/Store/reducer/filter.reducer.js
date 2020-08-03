@@ -1,4 +1,4 @@
-import { SET_FILTER } from '../actions/type.action';
+import { SET_FILTER, SET_FILTER_SEARCH } from '../actions/type.action';
 
 
 const initialState={
@@ -15,7 +15,12 @@ export default function(state=initialState,action){
                 ...state,
                 filterBy:payload.filter
             }
+        case SET_FILTER_SEARCH:
+            return{
+                ...state,
+                searchQuiery:payload.value
+            }
         default:
             return {...state}
     }
-}
+} 

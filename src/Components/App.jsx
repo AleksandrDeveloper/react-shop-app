@@ -1,7 +1,7 @@
 import React,{ useEffect } from 'react';
 
 import Axios from 'axios';
-import NavMenu from './NavMenu';
+import NavMenu from '../Containers/Menu';
 import {Container} from 'semantic-ui-react'
 import CardItem from './Cart';
 import { Card } from 'semantic-ui-react'
@@ -21,7 +21,6 @@ function App({
     .then(data=>setBooks(data.data))
   },[])
 
-  console.log(setFilter);
   return(
     <Container>
       <NavMenu />

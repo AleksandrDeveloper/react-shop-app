@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu } from 'semantic-ui-react'
 
 
-export default function NavMenu({}) {
+export default function NavMenu({totalprice,count}) {
     return(
         <Menu>
         <Menu.Item>
@@ -11,11 +11,11 @@ export default function NavMenu({}) {
 
         <Menu.Menu position='right'>
           <Menu.Item>
-            Итог: <b>0</b> руб
+            Итог: <b>{totalprice} </b> руб
           </Menu.Item>
 
           <Menu.Item>
-            Корзина
+            Корзина {count}
           </Menu.Item>
         </Menu.Menu>
       </Menu>
