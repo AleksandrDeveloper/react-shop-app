@@ -6,6 +6,7 @@ import {Container} from 'semantic-ui-react'
 import CardItem from './Cart';
 import { Card } from 'semantic-ui-react'
 import Filter from '../Containers/Filter'
+import Cart from '../Containers/Cart';
 
  
 
@@ -14,7 +15,6 @@ function App({
   books,
   isReady,
   setBooks,
-  setFilter,
 }){
   useEffect(()=>{
     Axios.get('http://localhost:3001/books')
@@ -29,7 +29,7 @@ function App({
       {
           !isReady?'Loading...'
           :books.map((itemBook,index)=>(
-            <CardItem 
+            <Cart
             key={index} 
             {...itemBook}
             />

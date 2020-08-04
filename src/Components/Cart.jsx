@@ -10,11 +10,12 @@ const Extra =({price}) =>(
 
 
 const CardItem = ({
+    id,
     image,
     title,
     author,
     price,
-    onAdd,
+    addBook,
 }) => (
   <Card>
       <div className="card-image">
@@ -32,7 +33,13 @@ const CardItem = ({
           {price}
         </a>
       </Card.Content>
-      <Button onClick={()=>onAdd()}>
+      <Button onClick={()=>addBook({
+        image,
+        title,
+        author,
+        price,
+        id
+      })}>
         Add to card (3)
       </Button>
     </Card>

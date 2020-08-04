@@ -27,11 +27,12 @@ export default function(state=initialState,action){
     
     switch (type) {
         case ADD_BOOK_TO_CART:
+            console.log();
             return{
                 ...state,
                 cartArray: [
                     ...state.cartArray,
-                    ...payload.newBookToCart
+                    payload.book
                 ]
             }
         case REMOVE_BOOK_FROM_CART:

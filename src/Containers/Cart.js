@@ -1,16 +1,15 @@
 import { connect } from "react-redux";
-import Filter from "../Components/Filter";
-import * as filterAction from '../Store/actions/filters'
+import Filter from "../Components/Cart";
+import * as cartAction from '../Store/actions/cart'
 import { bindActionCreators } from "redux";
 
 
-const mapStateToProps=({filter})=>({
-    activeItem: filter.filterBy,
-    searchQuiery:filter.searchQuiery
+const mapStateToProps=({cart})=>({
+    addedCount:0
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    ...bindActionCreators(filterAction,dispatch)
+    ...bindActionCreators(cartAction,dispatch)
 }); 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Filter) 
+export default connect(mapStateToProps,mapDispatchToProps)(Filter)  
